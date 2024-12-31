@@ -35,26 +35,26 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #1e30f3;
+  --bs-primary: #e6dfd7;
   --bs-secondary: #e21e80;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
-  --bs-light: #f8f9fa;
+  --bs-light: #e6dfd7;
   --bs-dark: #212529;
-  --bs-primary-rgb: 30, 48, 243;
-  --bs-secondary-rgb: 226, 30, 128;
+  --bs-primary-rgb: 230, 223, 215;
+  --bs-secondary-rgb: 159, 211, 199;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
   --bs-danger-rgb: 220, 53, 69;
-  --bs-light-rgb: 248, 249, 250;
-  --bs-dark-rgb: 33, 37, 41;
+  --bs-light-rgb: 230, 223, 215;
+  --bs-dark-rgb: 51, 47, 47;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
-  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-body-bg-rgb: 51, 47, 47;
   --bs-font-sans-serif: "Plus Jakarta Sans";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
@@ -63,7 +63,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-bg: #332f2f;
   --bs-border-width: 1px;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
@@ -74,8 +74,9 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #1e30f3;
-  --bs-link-hover-color: #1826c2;
+  --bs-link-color: #332f2f;
+  --bs-link-color-rgb: 108, 117, 125;
+  --bs-link-hover-color: #6c757d;
   --bs-code-color: #e21e80;
   --bs-highlight-bg: #fff3cd;
 }
@@ -278,7 +279,7 @@ sup {
 
 a {
   color: var(--bs-link-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
@@ -3302,20 +3303,20 @@ fieldset:disabled .btn {
 }
 
 .btn-primary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #1e30f3;
-  --bs-btn-border-color: #1e30f3;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #1a29cf;
-  --bs-btn-hover-border-color: #1826c2;
+  --bs-btn-color: #e6dfd7;
+  --bs-btn-bg: #39586d;
+  --bs-btn-border-color: #39586d;
+  --bs-btn-hover-color: #39586d;
+  --bs-btn-hover-bg: #e6dfd7;
+  --bs-btn-hover-border-color: #e6dfd7;
   --bs-btn-focus-shadow-rgb: 64, 79, 245;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #1826c2;
-  --bs-btn-active-border-color: #1724b6;
+  --bs-btn-active-color: #39586d;
+  --bs-btn-active-bg: #e6dfd7;
+  --bs-btn-active-border-color: #e6dfd7;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #1e30f3;
-  --bs-btn-disabled-border-color: #1e30f3;
+  --bs-btn-disabled-color: #e6dfd7;
+  --bs-btn-disabled-bg: #39586d;
+  --bs-btn-disabled-border-color: #39586d;
 }
 
 .btn-secondary {
@@ -3540,19 +3541,19 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-light {
-  --bs-btn-color: #f8f9fa;
-  --bs-btn-border-color: #f8f9fa;
-  --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #f8f9fa;
-  --bs-btn-hover-border-color: #f8f9fa;
+  --bs-btn-color: #e6dfd7;
+  --bs-btn-border-color: #e6dfd7;
+  --bs-btn-hover-color: #332f2f;
+  --bs-btn-hover-bg: #e6dfd7;
+  --bs-btn-hover-border-color: #e6dfd7;
   --bs-btn-focus-shadow-rgb: 248, 249, 250;
-  --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #f8f9fa;
-  --bs-btn-active-border-color: #f8f9fa;
+  --bs-btn-active-color: #332f2f;
+  --bs-btn-active-bg: #e6dfd7;
+  --bs-btn-active-border-color: #e6dfd7;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #f8f9fa;
+  --bs-btn-disabled-color: #e6dfd7;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #f8f9fa;
+  --bs-btn-disabled-border-color: #e6dfd7;
   --bs-gradient: none;
 }
 
@@ -4134,7 +4135,7 @@ fieldset:disabled .btn {
   --bs-nav-link-font-weight: ;
   --bs-nav-link-color: var(--bs-link-color);
   --bs-nav-link-hover-color: var(--bs-link-hover-color);
-  --bs-nav-link-disabled-color: #6c757d;
+  --bs-nav-link-disabled-color: #332f2f;
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
@@ -9231,7 +9232,12 @@ fieldset:disabled .btn {
 
 .text-muted {
   --bs-text-opacity: 1;
-  color: #6c757d !important;
+  color: #ccc !important;
+}
+
+.text-muted-dark {
+  --bs-text-opacity: 1;
+  color: #332f2f !important;
 }
 
 .text-black-50 {
@@ -13515,12 +13521,18 @@ html {
 }
 
 .bg-gradient-primary-to-secondary {
-  background: #1e30f3;
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  background: #ffffff;
+  background: linear-gradient(135deg, #9FD3C7 0%, #39586d 100%);
 }
 
 .text-gradient {
-  background: -webkit-linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
+  background: -webkit-linear-gradient(315deg, #9FD3C7 0%, #39586d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-dark {
+  background: -webkit-linear-gradient(315deg, #9FD3C7 0%, #39586d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -13565,7 +13577,7 @@ html {
 }
 
 .profile .dots-1 svg {
-  fill: #fff;
+  fill: #39586d;
 }
 
 .profile .dots-2 {
@@ -13576,7 +13588,7 @@ html {
 }
 
 .profile .dots-2 svg {
-  fill: #1e30f3;
+  fill: #e6dfd7;
 }
 
 .profile .dots-3 {
@@ -13587,7 +13599,7 @@ html {
 }
 
 .profile .dots-3 svg {
-  fill: #fff;
+  fill: #39586d;
 }
 
 .profile .dots-4 {
@@ -13598,7 +13610,7 @@ html {
 }
 
 .profile .dots-4 svg {
-  fill: #1e30f3;
+  fill: #e6dfd7;
 }
 
 @media (min-width: 576px) {
@@ -13731,7 +13743,6 @@ html {
     display: inline-block;
     overflow: hidden;
   }
-
   .project-image img {
     display: block;
     width: 100%;
@@ -13749,9 +13760,9 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
     color: white;
     display: flex;
+    background: rgba(var(--bs-body-bg-rgb), 0.95);
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -13814,7 +13825,7 @@ html {
     display: inline-block;
     margin-top: 1.5rem;
     padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, #1e30f3, #e21e80);
+    background: linear-gradient(135deg, #9FD3C7 0%, #39586d 100%);;
     color: white;
     border-radius: 0.25rem;
     text-decoration: none;
