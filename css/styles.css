@@ -13743,10 +13743,13 @@ html {
     display: inline-block;
     overflow: hidden;
   }
+
   .project-image img {
+    margin-left: auto;
+    margin-right: auto;
     display: block;
-    width: 100%;
-    height: auto;
+    max-height: 350px;
+    width: auto;
     transition: transform 0.5s ease;
   }
 
@@ -13771,6 +13774,7 @@ html {
     flex-direction: column;
     font-size: 1.2rem;
     text-align: center;
+    text-align: justify;
   }
 
   .project-image p a {
@@ -13819,13 +13823,15 @@ html {
     padding: 1rem;
     flex-direction: column;
     font-size: 1.1rem;
+    text-align: justify;
   }
 
   .project-image p a {
     display: inline-block;
     margin-top: 1.5rem;
     padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, #9FD3C7 0%, #39586d 100%);;
+    background: linear-gradient(135deg, #9FD3C7 0%, #39586d 100%);
+    ;
     color: white;
     border-radius: 0.25rem;
     text-decoration: none;
