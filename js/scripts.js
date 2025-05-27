@@ -136,14 +136,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     
-    // Ajout du défilement horizontal entre sections avec trackpad
+    // Ajout du défilement horizontal entre sections avec trackpad (seulement horizontal)
     document.addEventListener('wheel', function(e) {
-        // Si le défilement est significatif et horizontal ou vertical sans qu'un élément scrollable ne soit actif
-        if (Math.abs(e.deltaX) > 50 || (Math.abs(e.deltaY) > 50 && !isScrollableElement(e.target))) {
+        // Ne réagir qu'au défilement horizontal significatif
+        if (Math.abs(e.deltaX) > 50 && !isScrollableElement(e.target)) {
             e.preventDefault();
-            if ((e.deltaX > 0 || e.deltaY > 0) && currentSectionIndex < sections.length - 1) {
+            if (e.deltaX > 0 && currentSectionIndex < sections.length - 1) {
                 goToSection(currentSectionIndex + 1, 'next');
-            } else if ((e.deltaX < 0 || e.deltaY < 0) && currentSectionIndex > 0) {
+            } else if (e.deltaX < 0 && currentSectionIndex > 0) {
                 goToSection(currentSectionIndex - 1, 'prev');
             }
         }
@@ -173,5 +173,46 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         
         return false;
+    }
+    
+    // NAVIGATION TACTILE
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+    const swipeThreshold = 80; // Seuil de distance pour détecter un swipe
+    
+    // Configuration des événements tactiles
+    document.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, { passive: false });
+    
+    // Fonction pour gérer les gestes de swipe
+    function handleSwipe() {
+        // Calculer la distance horizontale et verticale du swipe
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        
+        // Ne réagir qu'aux swipes horizontaux qui dépassent le seuil
+        if (Math.abs(deltaX) > swipeThreshold && Math.abs(deltaX) > Math.abs(deltaY)) {
+            // Éviter les swipes courts ou accidentels
+            const targetElement = document.elementFromPoint(touchStartX, touchStartY);
+            if (!isScrollableElement(targetElement)) {
+                if (deltaX > 0 && currentSectionIndex > 0) {
+                    // Swipe de gauche à droite -> section précédente
+                    goToSection(currentSectionIndex - 1, 'prev');
+                } else if (deltaX < 0 && currentSectionIndex < sections.length - 1) {
+                    // Swipe de droite à gauche -> section suivante
+                    goToSection(currentSectionIndex + 1, 'next');
+                }
+            }
+        }
     }
 });
