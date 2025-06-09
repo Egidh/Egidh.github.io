@@ -13748,7 +13748,97 @@ html {
 }
 
 @media (min-width: 768px) {
+    /* Uniformisation des cartes de projet */
+  .card.overflow-hidden.shadow.rounded-4.border-0.mb-5 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Mise en forme cohérente des conteneurs d'images de projet */
   .project-image {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+  }
+  
+  /* Uniformisation de la taille des images */
+  .project-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Uniformisation des titres de projet */
+  .project-image h2 {
+    margin-bottom: 1rem;
+    height: auto;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Uniformisation des descriptions de projet */
+  .project-image p {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+  
+  /* Positionnement cohérent du lien "En savoir plus" */
+  .project-image p a {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+  
+  /* Adaptation responsive pour les grands écrans */
+  @media (min-width: 992px) {
+    .row.gx-5.justify-content-center .col-xxl-6 {
+      display: flex;
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Amélioration de l'effet hover existant */
+    .card:hover .project-image img {
+      transform: scale(1.1); /* Un peu moins exagéré pour plus d'élégance */
+    }
+    
+    .project-image p {
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Adaptation responsive pour mobile */
+  @media (max-width: 768px) {
+    .project-image img {
+      height: 200px; /* Images plus petites sur mobile */
+    }
+    
+    .project-image h2 {
+      min-height: auto;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-image p {
+      padding: 0.75rem;
+    }
+  }
+  
+  /* Correction pour les affichages de différentes hauteurs */
+  .row.gx-5.justify-content-center {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .row.gx-5.justify-content-center .col-xxl-6 {
+    margin-bottom: 1.5rem;
+    display: flex;
+  }ct-image {
     position: relative;
     display: inline-block;
     overflow: hidden;
