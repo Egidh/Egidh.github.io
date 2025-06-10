@@ -138,24 +138,25 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Ajout du défilement horizontal entre sections avec trackpad (seulement horizontal)
     document.addEventListener('wheel', function(e) {
-        // Ne réagir qu'au défilement horizontal significatif
         // Traiter à la fois le défilement horizontal (trackpad) et vertical (molette)
-        if (Math.abs(e.deltaX) > 50 && !isScrollableElement(e.target)) {
+        if (Math.abs(e.deltaX) > 10 && !isScrollableElement(e.target)) {
             e.preventDefault();
             if (e.deltaX > 0 && currentSectionIndex < sections.length - 1) {
-            goToSection(currentSectionIndex + 1, 'next');
+                goToSection(currentSectionIndex + 1, 'next');
             } else if (e.deltaX < 0 && currentSectionIndex > 0) {
-            goToSection(currentSectionIndex - 1, 'prev');
+                goToSection(currentSectionIndex - 1, 'prev');
             }
         } else if (Math.abs(e.deltaY) > 50 && !isScrollableElement(e.target)) {
-            e.preventDefault();
             // Pour la molette, le défilement vers le bas (deltaY positif) fait avancer
             if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
-            goToSection(currentSectionIndex + 1, 'next');
+                e.preventDefault(); // Bloquer seulement si on change de section
+                goToSection(currentSectionIndex + 1, 'next');
             // Le défilement vers le haut (deltaY négatif) fait reculer  
             } else if (e.deltaY < 0 && currentSectionIndex > 0) {
-            goToSection(currentSectionIndex - 1, 'prev');
+                e.preventDefault(); // Bloquer seulement si on change de section
+                goToSection(currentSectionIndex - 1, 'prev');
             }
+            // Si aucune condition n'est remplie, le scroll naturel continue
         }
     }, { passive: false });
     
