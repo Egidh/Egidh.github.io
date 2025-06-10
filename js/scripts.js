@@ -136,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     
-    // Ajout du défilement horizontal entre sections avec trackpad (seulement horizontal)
     document.addEventListener('wheel', function(e) {
         // Traiter à la fois le défilement horizontal (trackpad) et vertical (molette)
         if (Math.abs(e.deltaX) > 10 && !isScrollableElement(e.target)) {
@@ -222,6 +221,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else if (deltaX < 0 && currentSectionIndex < sections.length - 1) {
                     // Swipe de droite à gauche -> section suivante
                     goToSection(currentSectionIndex + 1, 'next');
+                }
+                // Bloquer le défilement si on essaie d'aller au-delà des limites
+                if ((deltaX > 0 && currentSectionIndex === 0) || 
+                    (deltaX < 0 && currentSectionIndex === sections.length - 1)) {
+                    e.preventDefault();
                 }
             }
         }
