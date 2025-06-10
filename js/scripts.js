@@ -222,12 +222,24 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Swipe de droite à gauche -> section suivante
                     goToSection(currentSectionIndex + 1, 'next');
                 }
-                // Bloquer le défilement si on essaie d'aller au-delà des limites
-                if ((deltaX > 0 && currentSectionIndex === 0) || 
-                    (deltaX < 0 && currentSectionIndex === sections.length - 1)) {
-                    e.preventDefault();
-                }
-            }
+             }
         }
     }
+
+    // Empêcher le défilement horizontal sur mobile
+    document.addEventListener('touchmove', function(e) {
+        // Calculer le déplacement en cours
+        const currentX = e.touches[0].screenX;
+        const currentY = e.touches[0].screenY;
+        const deltaX = currentX - touchStartX;
+        const deltaY = currentY - touchStartY;
+        
+        // Si c'est principalement un mouvement horizontal
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            const targetElement = document.elementFromPoint(touchStartX, touchStartY);
+            if (!isScrollableElement(targetElement)) {
+                e.preventDefault(); // Empêcher le défilement horizontal
+            }
+        }
+    }, { passive: false });
 });
